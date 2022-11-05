@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #contents {
+      display: flex;
+      justify-content: center;
+    }
+    form {
+      max-width: 750px;
+    }
+    #input_name {
+      display: flex;
+      align-items: center;
+    }
+    #name {
+      padding: 5px;
+      margin-left: 5px;
+      margin-top: 5px;
+    }
+    #header h1 {
+      text-align: center;
+      margin: 50px;
+    }
+    form div {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: antiquewhite;
+      border-radius: 5px;
+    }
+    #input_message p {
+      margin: 10px;
+    }
+    #submit {
+      text-align: center;
+      background-color: white;
+    }
+    #submit_button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border-color: transparent;
+      border-radius: 5px;
+      width: 20%;
+    }
+    #submit_button:hover {
+      background-color: royalblue;
+    }
+    textarea {
+      display: block;
+      width: 100%;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var name = document.form.name;
+      if (name.value == "") {
+        alert("이름을 입력하세요");
+        name.focus();
+        return false;
+      }
+
+      var gender = document.form.gender;
+      if (gender.value == "") {
+        alert("성별을 입력하세요");
+        gender.focus();
+        return false;
+      }
+
+      var grade = document.form.grade;
+      if (grade.value == "") {
+        alert("학년을 입력하세요");
+        grade.focus();
+        return false;
+      }
+
+      var birthday = document.form.birthday;
+      if (birthday.value == "") {
+        alert("생일을 입력하세요");
+        birthday.focus();
+        return false;
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <h1>학생 정보</h1>
+  </div>
+  <div id="contents">
+    <form name="form" class="person_info" action="form_ok.jsp" onsubmit="return validateForm()" method="post">
+      <div id="input_name">
+        <label for="name">이름:</label><br>
+        <input type="text" id="name" name="name"><br>
+      </div>
+
+      <div id="input_gender">
+        <label>성별:</label><br>
+        <input type="radio" id="male" name="gender" value="남">
+        <label for="male">남</label><br>
+        <input type="radio" id="female" name="gender" value="여">
+        <label for="female">여</label><br>
+      </div>
+
+      <div id="input_birthday">
+        <label for="birthday">생일:</label>
+        <input type="date" id="birthday" name="birthday"><br>
+      </div>
+
+      <div id="input_grade">
+        <label for="grade">학년:</label>
+        <select id="grade" name="grade">
+          <option value="1">1학년</option>
+          <option value="2">2학년</option>
+          <option value="3">3학년</option>
+          <option value="4">4학년</option>
+        </select><br>
+      </div>
+
+      <div id="input_subject">
+        <label>수강 목록:</label><br>
+        <input type="checkbox" id="subject1" name="subject" value="Computer Architecture">
+        <label for="subject1"> Computer Architecture</label><br>
+        <input type="checkbox" id="subject2" name="subject" value="Computer Vision">
+        <label for="subject2"> Computer Vision</label><br>
+        <input type="checkbox" id="subject3" name="subject" value="Practical Project1">
+        <label for="subject3"> Practical Project1</label><br>
+        <input type="checkbox" id="subject4" name="subject" value="Discrete Mathematics">
+        <label for="subject4"> Discrete Mathematics</label><br>
+        <input type="checkbox" id="subject5" name="subject" value="Web Service Development">
+        <label for="subject5"> Web Service Development</label><br>
+      </div>
+
+      <div id="input_message">
+        <p>남기고 싶은 말:</p>
+        <textarea name="message" rows="10" cols="50"></textarea><br>
+      </div>
+
+      <div id="submit">
+        <input type="submit" value="Submit" id="submit_button">
+      </div>
+    </form>
+  </div>
+  <div id="footer"></div>
+</div>
+</body>
+</html>
